@@ -102,9 +102,15 @@ struct CommitCheckerWidgetView : View {
             HStack {
                 Link(destination: URL(string: "https://www.google.com")!) {
                     Text("Go to Google")
+                        .border(Color.white, width: 2)
+                        .padding(5)
+                        .lineLimit(2)
                 }
                 Link(destination: URL(string: "https://www.bizplay.co.kr")!) {
                     Text("Go to Bizplay")
+                        .border(Color.white, width: 2)
+                        .padding(5)
+                        .lineLimit(2)
                 }
             }
         }
