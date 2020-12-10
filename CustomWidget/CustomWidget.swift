@@ -78,6 +78,7 @@ struct CommitTimeline: TimelineProvider {
         let entry = LastCommitEntry(date: Date(), commit: fakeCommit)
         completion(entry)
     }
+
 }
 
 struct CommitCheckerWidgetView : View {
@@ -98,6 +99,14 @@ struct CommitCheckerWidgetView : View {
             Text("Updated at \(Self.format(date:entry.date))")
                 .font(.system(.caption2))
                 .foregroundColor(.black)
+            HStack {
+                Link(destination: URL(string: "https://www.google.com")!) {
+                    Text("Go to Google")
+                }
+                Link(destination: URL(string: "https://www.bizplay.co.kr")!) {
+                    Text("Go to Bizplay")
+                }
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading)
         .padding()
@@ -127,8 +136,7 @@ struct CustomWidget: Widget {
 
 struct CustomWidget_Previews: PreviewProvider {
     static var previews: some View {
-        CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(message: "previews", author: "tester", date: "2020-12-10")))
+        CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(message: "Previews", author: "Unknown_User", date: "2020-12-10")))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
-//
